@@ -1,0 +1,26 @@
+<div >
+  <form #heroForm="ngForm" class="example-form">
+    <mat-form-field class="example-full-width">
+      <input type="text" matInput placeholder="Product Name" value=""
+             [(ngModel)]="product.productName" name="ProductName"class="form-control" required>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="example-full-width">
+      <input type="text" matInput placeholder="price" value="0"
+             [(ngModel)]="product.price" name="price" class="form-control" required>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="example-full-width">
+      <input type="text" matInput placeholder="image" value=""
+             [(ngModel)]="product.image" name="image" class="form-control" required>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="example-full-width">
+      <input type="text" matInput placeholder="quantityAvaiable" value="0"
+             [(ngModel)]="product.quantityAvaiable" name="quantityAvaiable" class="form-control" required>
+    </mat-form-field>
+    <br>
+    <button type="submit" (click)="onSubmit()" mat-dialog-close mat-raised-button color="accent">Submit</button>
+  </form>
+
+</div >

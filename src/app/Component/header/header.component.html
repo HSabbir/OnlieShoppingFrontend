@@ -1,0 +1,11 @@
+<script src="../../app.component.ts"></script>
+<script src="../home/home.component.ts"></script>
+<mat-toolbar class="navbar">
+  <div routerLink="/">MY SHOP</div>
+  <div>
+    <button mat-raised-button routerLink="/"><mat-icon aria-hidden="false" >home</mat-icon>Home</button>
+    <button mat-raised-button routerLink="/cart"><mat-icon aria-hidden="false" >shopping_cart</mat-icon>Cart ({{getTotai()}})</button>
+    <button mat-raised-button routerLink="/admin">Admin Panel</button>
+    <button mat-raised-button routerLink="/login"><mat-icon aria-hidden="false">login</mat-icon>Login</button>
+  </div>
+</mat-toolbar>

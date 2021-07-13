@@ -1,0 +1,25 @@
+
+.mat-toolbar{
+  background: #f3f3f3;
+  color: black;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.navbar{
+  justify-content: space-between;
+}
+
+/*.mat-toolbar:hover {*/
+/*  color: white;*/
+/*  background-color: black;*/
+/*}*/
+.mat-raised-button{
+  margin-right: 20px;
+  background: black;
+  color: white;
+}
+
+.mat-icon {
+  font-size: 20px;
+  padding-right: 8px;
+}

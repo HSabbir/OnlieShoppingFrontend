@@ -1,0 +1,9 @@
+<mat-card>
+  <div>WELCOME TO OUR SHOP</div>
+</mat-card>
+<div class="product-display">
+  <ul fxLayout="row wrap" fxLayoutAlign="left">
+    <li *ngFor="let product of products"><app-product [product]="product"></app-product></li>
+  </ul>
+</div>
+

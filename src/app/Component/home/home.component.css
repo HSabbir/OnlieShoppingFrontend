@@ -1,0 +1,17 @@
+.mat-card{
+  height: 250px;
+  margin: 20px 0;
+  font-size: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.product-display{
+  margin: 50px;
+  padding: 10px;
+}
+li{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}

@@ -1,0 +1,32 @@
+.example-card {
+  width: 340px;
+  height: 400px;
+  margin: 30px;
+}
+div{
+  margin: 60px;
+}
+.grid{
+  margin: 50px;
+}
+.example-card:hover{
+  color: black;
+  box-shadow: 4px 4px 4px 4px rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+mat-card img{
+  height: 280px;
+}
+li{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+button{
+  max-height: 40px;
+}
+.display-number{
+  font-size: 20px;
+}
+.zooming{
+  font-size: 100px;
+}
