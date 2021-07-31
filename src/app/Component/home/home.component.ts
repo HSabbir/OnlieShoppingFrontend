@@ -9,8 +9,8 @@ import {ProductService} from '../../services/product-services/product-services.s
 export class HomeComponent implements OnInit {
   products = this.productService.allProducts;
   constructor(private productService: ProductService) {
-    this.productService.readAll().subscribe(data => {
-      this.products = data.data ;
+    this.productService.readAll().subscribe( result => {
+      this.products = result.data ;
     });
   }
   ngOnInit(): void {

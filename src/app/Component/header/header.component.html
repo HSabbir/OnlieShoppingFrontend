@@ -5,7 +5,9 @@
   <div>
     <button mat-raised-button routerLink="/"><mat-icon aria-hidden="false" >home</mat-icon>Home</button>
     <button mat-raised-button routerLink="/cart"><mat-icon aria-hidden="false" >shopping_cart</mat-icon>Cart ({{getTotai()}})</button>
-    <button mat-raised-button routerLink="/admin">Admin Panel</button>
-    <button mat-raised-button routerLink="/login"><mat-icon aria-hidden="false">login</mat-icon>Login</button>
+    <button mat-raised-button routerLink="/allorder" *ngIf="authservice.loggedIn()">My Order</button>
+    <button mat-raised-button routerLink="/admin" *ngIf="authservice.loggedIn() && isAdmin()">Admin Panel</button>
+    <button mat-raised-button routerLink="/login" *ngIf="!authservice.loggedIn()"><mat-icon aria-hidden="false">login</mat-icon>Login</button>
+    <button mat-raised-button routerLink="/" *ngIf="authservice.loggedIn()" (click)="authservice.logout()"><mat-icon aria-hidden="false">logout</mat-icon>Logout</button>
   </div>
 </mat-toolbar>

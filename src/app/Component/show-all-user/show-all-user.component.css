@@ -1,0 +1,14 @@
+table {
+  width: 100%;
+}
+.container{
+  padding: 5% 20%;
+}
+button{
+  margin: 20px;
+}
+p{
+  font-family: 'Bebas Neue', cursive;
+  font-size: 2rem;
+  color: darkblue;
+}

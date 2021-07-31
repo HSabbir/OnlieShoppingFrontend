@@ -1,46 +1,37 @@
- <form class="example-form">
-    <div class="font">
-      <p>Fill up order form</p>
-    </div>
-    <tr>
-      <td>
-        <mat-form-field class="example-full-width" appearance="fill">
-          <mat-label>First name</mat-label>
-          <input matInput type="text" name="firstName" [(ngModel)]="order.firstName" required>
-        </mat-form-field>
-      </td>
-      <td>
-        <mat-form-field class="example-full-width" appearance="fill">
-          <mat-label>Last Name</mat-label>
-          <input matInput type="text" name="lastName" [(ngModel)]="order.lastName" required>
-        </mat-form-field>
-      </td>
-    </tr>
+<div>
+  <mat-card>
+    <form class="example-form">
+      <div class="font">
+        <p>Fill up order form</p>
+      </div>
 
-    <p>
+      <p>
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Address</mat-label>
+          <textarea matInput placeholder="Ex. lalbag, Dhaka" type="text" name="address" [(ngModel)]="order.address" required></textarea>
+        </mat-form-field>
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Phone Number</mat-label>
+          <input matInput type="text" name="phone" [(ngModel)]="order.phone" required>
+        </mat-form-field>
+      </p>
+      <label id="example-radio-group-label">Choose payment method</label>
+      <mat-radio-group
+        aria-labelledby="example-radio-group-label"
+        class="example-radio-group"
+        [(ngModel)]="order.paymentMethod" required name="radio">
+        <mat-radio-button class="example-radio-button" *ngFor="let season of option" [value]="season">
+          {{season}}
+        </mat-radio-button>
+      </mat-radio-group>
       <mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>Address</mat-label>
-        <textarea matInput placeholder="Ex. lalbag, Dhaka" type="text" name="address" [(ngModel)]="order.address" required></textarea>
+        <mat-label>Account Number</mat-label>
+        <input matInput type="text" name="accountNumber" [(ngModel)]="order.accountNumber" required>
       </mat-form-field>
-      <mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>Phone Number</mat-label>
-        <input matInput type="text" name="phone" [(ngModel)]="order.phone" required>
-      </mat-form-field>
-    </p>
-    <label id="example-radio-group-label">Choose payment method</label>
-    <mat-radio-group
-      aria-labelledby="example-radio-group-label"
-      class="example-radio-group"
-      [(ngModel)]="order.paymentMethod" required name="radio">
-      <mat-radio-button class="example-radio-button" *ngFor="let season of option" [value]="season">
-        {{season}}
-      </mat-radio-button>
-    </mat-radio-group>
-    <mat-form-field class="example-full-width" appearance="fill">
-      <mat-label>Account Number</mat-label>
-      <input matInput type="text" name="accountNumber" [(ngModel)]="order.accountNumber" required>
-    </mat-form-field>
-    <h4>Total Price: {{order.totalPrice}} $</h4>
+      <h4>Total Price: {{order.totalprice}} $</h4>
 
-    <button mat-raised-button color="accent" (click)="ubmit()" mat-dialog-close> Confirm Order</button>
-  </form>
+      <button mat-raised-button color="accent" (click)="submit()" mat-dialog-close> Confirm Order</button>
+    </form>
+  </mat-card>
+
+</div>

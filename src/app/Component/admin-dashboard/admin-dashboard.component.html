@@ -1,2 +1,9 @@
 <script src="../../product.ts"></script>
-<app-crud-product></app-crud-product>
+<mat-card>
+  <button mat-raised-button color="accent" (click)="toggle('product')">Product</button>
+  <button mat-raised-button color="accent" (click)="toggle('order')">Order</button>
+  <button mat-raised-button color="accent" (click)="toggle('user')">Users</button>
+</mat-card>
+<app-crud-product *ngIf="product === 'product'"></app-crud-product>
+<app-show-order-admin *ngIf="product === 'order'"></app-show-order-admin>
+<app-show-all-user *ngIf="product === 'user'"></app-show-all-user>

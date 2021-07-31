@@ -5,10 +5,10 @@ import { CartInterface } from '../../cartInterface';
   providedIn: 'root'
 })
 export class CartService {
+  totalprice = 0;
   cart: CartInterface[] = [];
   numberOfTotalItem = 0 ;
   addToCart(id: number, increment: number): void {
-    console.log('vcalled');
     const checkCart = this.cart.find(x => x.id === id);
     if (checkCart) {
       if (increment < 0 && checkCart.number_of_item === 0){
@@ -39,8 +39,15 @@ export class CartService {
       }
     });
   }
+  gettotalPrice(): number{
+    return this.totalprice;
+  }
+  settotalPrice(price: number): void {
+    this.totalprice = price;
+  }
   clearCart(): object {
     this.cart = [];
+    this.numberOfTotalItem = 0;
     return this.cart;
   }
 }

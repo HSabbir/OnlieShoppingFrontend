@@ -16,15 +16,18 @@ export class ShowTotalPriceComponent implements OnInit {
       this.products = data.data ;
     });
   }
-  openForm(): void {
-    this.dialog.open(OrderFormComponent, { width: '500px' , data: this.getTotalPrice()});
-  }
+  // openForm(): void {
+  //   this.dialog.open(OrderFormComponent, { width: '500px' , data: this.getTotalPrice()});
+  // }
   getTotalPrice(): number {
     let totalPrice = 0;
-    for (const item of this.cartService.getItems()) {
-      const product = this.products.find(x => x.id === item.id);
+    const items = this.cartService.getItems();
+    for (const item of items) {
+      let product: any;
+      product = this.products.find(x => x.id === item.id);
       totalPrice += item.number_of_item * product.price ;
     }
+    this.cartService.settotalPrice(totalPrice);
     return totalPrice ;
   }
   getTotalNumberOfItem(): number {

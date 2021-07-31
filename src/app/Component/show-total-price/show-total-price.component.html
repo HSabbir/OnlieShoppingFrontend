@@ -3,6 +3,6 @@
     <p>Subtotal ({{getTotalNumberOfItem()}} items) : {{getTotalPrice()}} $</p>
   </mat-card-content>
   <mat-card-actions>
-    <button (click)="openForm()" mat-raised-button color="primary">CHECKOUT</button>
+    <button routerLink="/checkout" mat-raised-button color="primary">CHECKOUT</button>
   </mat-card-actions>
 </mat-card>

@@ -15,7 +15,7 @@ export class ProductService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
   readAll(): Observable<any> {
-    return  this.httpClient.get(baseURL);
+    return this.httpClient.get(baseURL);
   }
 
   read(id): Observable<any> {

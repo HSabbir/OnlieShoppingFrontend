@@ -1,0 +1,34 @@
+<div class="container">
+  <p>All Your Orders</p>
+  <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="orders"   matSort>
+
+      <ng-container matColumnDef="Id">
+        <th mat-header-cell *matHeaderCellDef> Id </th>
+        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="Address">
+        <th mat-header-cell *matHeaderCellDef> Address </th>
+        <td mat-cell *matCellDef="let element"> {{element.address}} </td>
+      </ng-container>
+      <ng-container matColumnDef="Total Price">
+        <th mat-header-cell *matHeaderCellDef>Total Price </th>
+        <td mat-cell *matCellDef="let element"> {{element.totalPrice}} </td>
+      </ng-container>
+      <ng-container [matColumnDef]="'actions'">
+        <th mat-header-cell *matHeaderCellDef> actions </th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-icon-button >
+            <mat-icon mat-icon-button color="warn" (click)="deleteOrders(element.id)">delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+</div>
+

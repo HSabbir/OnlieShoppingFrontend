@@ -29,3 +29,7 @@ button{
   color: darkblue;
   align-items: center;
 }
+mat-card{
+  width: 26.5%;
+  margin: 1% 32.5%;
+}

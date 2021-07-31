@@ -3,7 +3,11 @@
   max-width: 500px;
   width: 100%;
 }
-
+p{
+  font-family: 'Bebas Neue', cursive;
+  font-size: 2rem;
+  color: darkblue;
+}
 .example-full-width {
   width: 100%;
 }

@@ -18,10 +18,18 @@ import { RegisterComponent } from './Component/register/register.component';
 import { AdminDashboardComponent } from './Component/admin-dashboard/admin-dashboard.component';
 import { CrudProductComponent } from './Component/crud-product/crud-product.component';
 
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { DialogComponentComponent } from './Component/dialog-component/dialog-component.component';
 import {DialogProductAddComponent} from './Component/dialog-product-add/dialog-product-add.component';
 import { OrderFormComponent } from './Component/order-form/order-form.component';
+import {AuthServiceService} from './services/auth-service/auth-service.service';
+import {AuthGuard} from './auth.guard';
+import {ProductService} from './services/product-services/product-services.service';
+import {TokenInterceptorService} from './services/token-interceptor/token-interceptor.service';
+import { ShowAllOrderComponent } from './Component/show-all-order/show-all-order.component';
+import {AdminAuthGuard} from './admin-guard.guard';
+import { ShowOrderAdminComponent } from './Component/show-order-admin/show-order-admin.component';
+import { ShowAllUserComponent } from './Component/show-all-user/show-all-user.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +46,9 @@ import { OrderFormComponent } from './Component/order-form/order-form.component'
     DialogComponentComponent,
     DialogProductAddComponent,
     OrderFormComponent,
+    ShowAllOrderComponent,
+    ShowOrderAdminComponent,
+    ShowAllUserComponent,
   ],
   imports: [
     BrowserModule,
@@ -50,13 +61,16 @@ import { OrderFormComponent } from './Component/order-form/order-form.component'
       {path: 'cart', component: CartComponent},
       {path: 'login', component: LoginComponent},
       {path: 'register', component: RegisterComponent},
-      {path: 'admin', component: AdminDashboardComponent},
-      {path: 'order', component: OrderFormComponent}
+      {path: 'checkout', component: OrderFormComponent, canActivate: [AuthGuard]},
+      {path: 'order', component: OrderFormComponent, canActivate: [AuthGuard]},
+      {path: 'allorder', component: ShowAllOrderComponent, canActivate: [AuthGuard]},
+      {path: 'admin', component: AdminDashboardComponent, canActivate: [AuthGuard, AdminAuthGuard]}
     ]),
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [AuthServiceService, AuthGuard, AdminAuthGuard, ProductService,
+    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptorService, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
